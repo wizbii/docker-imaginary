@@ -1,17 +1,14 @@
 0.0.0.0:80
 
-gzip
 cors
 
 log stdout
 errors stdout
 
-expires {
-    match .* 240h # 10 days
-}
-
 cache {
     match_path /
+    match_header Content-Type image/jpeg image/webp
+
     default_max_age 240h # 10 days
 }
 
